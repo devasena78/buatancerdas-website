@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuatanCerdas - Business Software for the Way You Work</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --white: #ffffff; --black: #1d1d1f; --grey-1: #f5f5f7; --grey-2: #e8e8ed; --grey-3: #6e6e73; --blue: #0071e3; --blue-hover: #0077ed; --radius-sm: 12px; --radius-md: 18px; --radius-lg: 28px; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.5; overflow-x: hidden; }
+    nav { position: sticky; top: 0; z-index: 200; height: 48px; background: rgba(255,255,255,0.82); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1rem, 5vw, 5rem); }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.03em; color: var(--black); text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: clamp(1rem, 3vw, 2.5rem); }
+    nav ul a { text-decoration: none; color: var(--grey-3); font-size: 0.78rem; transition: color .2s; }
+    nav ul a:hover { color: var(--black); }
+    .nav-actions { display: flex; gap: .75rem; align-items: center; }
+    .nav-link { font-size: .78rem; color: var(--blue); text-decoration: none; font-weight: 500; }
+    .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem 3rem; background: radial-gradient(ellipse 80% 60% at 50% 0%, #deeeff 0%, #ffffff 70%); position: relative; overflow: hidden; isolation: isolate; }
+    .hero-eyebrow { font-size: clamp(.75rem, 1.5vw, .9rem); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.25rem; }
+    .hero h1 { font-size: clamp(2.8rem, 8vw, 7rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1.04; color: var(--black); max-width: 900px; margin-bottom: 1.25rem; }
+    .hero h1 em { font-style: normal; color: var(--blue); }
+    .hero-sub { font-size: clamp(1rem, 2vw, 1.35rem); color: var(--grey-3); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.6; }
+    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-fill { background: var(--blue); color: #fff; padding: .8rem 2rem; border-radius: 980px; font-size: .95rem; font-weight: 500; text-decoration: none; transition: background .2s; display: inline-block; }
+    .btn-fill:hover { background: var(--blue-hover); }
+    .btn-ghost { color: var(--blue); padding: .8rem 2rem; border-radius: 980px; font-size: .95rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: .35rem; }
+    .btn-ghost::after { content: '›'; font-size: 1.15rem; }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-stats { display: flex; gap: clamp(2rem, 6vw, 5rem); margin-top: 5rem; flex-wrap: wrap; justify-content: center; border-top: 1px solid var(--grey-2); padding-top: 2.5rem; width: 100%; max-width: 700px; }
+    .hero-stats .stat strong { display: block; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.04em; color: var(--black); }
+    .hero-stats .stat span { font-size: .82rem; color: var(--grey-3); }
+    section { padding: clamp(4rem, 9vw, 8rem) clamp(1.5rem, 5vw, 5rem); }
+    .eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: .75rem; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1rem; color: var(--black); }
+    .section-body { font-size: clamp(.95rem, 1.5vw, 1.1rem); color: var(--grey-3); max-width: 520px; line-height: 1.65; }
+    #services { background: var(--black); color: var(--white); }
+    #services .eyebrow { color: #5ac8fa; }
+    #services .section-title { color: var(--white); }
+    #services .section-body { color: rgba(255,255,255,.55); }
+    .product-header { max-width: 700px; margin: 0 auto 4rem; text-align: center; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; background: #333; border-radius: var(--radius-lg); overflow: hidden; }
+    .product-cell { background: #1d1d1f; padding: clamp(2rem, 4vw, 3rem); display: flex; flex-direction: column; transition: background .3s; }
+    .product-cell:hover { background: #2a2a2d; }
+    .product-cell.featured { background: #000; grid-column: span 2; }
+    @media (max-width: 700px) { .product-cell.featured { grid-column: span 1; } }
+    .product-cell .icon { font-size: 2.2rem; margin-bottom: 1.5rem; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; }
+    .product-cell h3 { font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: .6rem; }
+    .product-cell p { font-size: .9rem; color: rgba(255,255,255,.5); line-height: 1.65; flex: 1; margin-bottom: 1.75rem; }
+    .product-cell .cell-link { font-size: .88rem; color: #5ac8fa; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: .25rem; }
+    .product-cell .cell-link::after { content: '›'; font-size: 1.1rem; }
+    .product-cell ul { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+    .product-cell ul li { font-size: .85rem; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: .5rem; }
+    .product-cell ul li::before { content: '—'; color: #5ac8fa; flex-shrink: 0; }
+    #why { background: var(--grey-1); overflow: hidden; padding-bottom: 0; }
+    .why-header { max-width: 680px; margin-bottom: 4rem; }
+    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--grey-2); border-radius: var(--radius-lg); overflow: hidden; }
+    @media (max-width: 600px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: var(--grey-1); padding: clamp(2rem, 4vw, 3rem); transition: background .25s; }
+    .pillar:hover { background: var(--white); }
+    .pillar .num { font-size: 3rem; font-weight: 800; letter-spacing: -0.06em; color: var(--grey-2); margin-bottom: 1.5rem; line-height: 1; }
+    .pillar h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: .5rem; }
+    .pillar p { font-size: .9rem; color: var(--grey-3); line-height: 1.65; max-width: 340px; }
+    #how { background: var(--white); }
+    .how-header { max-width: 680px; margin-bottom: 4rem; }
+    .steps-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); position: relative; }
+    .steps-row::before { content: ''; position: absolute; top: 20px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--grey-2) 10%, var(--grey-2) 90%, transparent); }
+    .step-item { padding: 2.5rem 2rem 0 0; }
+    .step-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 700; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+    .step-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+    .step-item p { font-size: .88rem; color: var(--grey-3); line-height: 1.65; }
+    #testimonials { background: var(--grey-1); }
+    .testimonials-header { max-width: 680px; margin-bottom: 3.5rem; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .review { background: var(--white); border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .review-stars { color: var(--black); font-size: .85rem; }
+    .review p { font-size: .95rem; line-height: 1.7; color: var(--black); flex: 1; }
+    .reviewer { display: flex; align-items: center; gap: .75rem; }
+    .reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; }
+    .reviewer strong { display: block; font-size: .85rem; font-weight: 700; }
+    .reviewer span { font-size: .78rem; color: var(--grey-3); }
+    #pricing { background: var(--black); }
+    #pricing .eyebrow { color: #5ac8fa; }
+    #pricing .section-title { color: var(--white); }
+    #pricing .section-body { color: rgba(255,255,255,.5); }
+    .pricing-header { max-width: 680px; margin: 0 auto 4rem; text-align: center; }
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; max-width: 960px; margin: 0 auto; }
+    .plan { border-radius: var(--radius-md); padding: 2.5rem; background: #2a2a2d; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .plan.featured { background: #fff; color: var(--black); }
+    .plan-badge { position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--blue); color: #fff; font-size: .72rem; font-weight: 700; padding: .3rem 1rem; border-radius: 0 0 8px 8px; }
+    .plan h3 { font-size: .95rem; font-weight: 600; color: rgba(255,255,255,.55); margin-bottom: 1rem; }
+    .plan.featured h3 { color: var(--grey-3); }
+    .plan-price { font-size: 3rem; font-weight: 800; letter-spacing: -0.05em; line-height: 1; color: var(--white); margin-bottom: .25rem; }
+    .plan.featured .plan-price { color: var(--black); }
+    .plan-price sub { font-size: 1rem; font-weight: 400; opacity: .6; }
+    .plan-desc { font-size: .82rem; color: rgba(255,255,255,.4); margin-bottom: 2rem; }
+    .plan.featured .plan-desc { color: var(--grey-3); }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: .7rem; flex: 1; margin-bottom: 2rem; }
+    .plan-features li { font-size: .88rem; display: flex; align-items: flex-start; gap: .6rem; color: rgba(255,255,255,.65); }
+    .plan.featured .plan-features li { color: var(--black); }
+    .plan-features li::before { content: 'v'; font-weight: 700; color: #30d158; flex-shrink: 0; }
+    .plan-btn { display: block; text-align: center; padding: .85rem; border-radius: 980px; font-size: .95rem; font-weight: 500; text-decoration: none; }
+    .plan:not(.featured) .plan-btn { background: rgba(255,255,255,.12); color: var(--white); }
+    .plan.featured .plan-btn { background: var(--blue); color: var(--white); }
+    #contact { background: var(--grey-1); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; max-width: 1000px; }
+    @media (max-width: 720px) { .contact-inner { grid-template-columns: 1fr; } }
+    .contact-left h2 { margin-bottom: 1rem; }
+    .contact-left .section-body { margin-bottom: 2.5rem; }
+    .contact-detail { display: flex; gap: .85rem; margin-bottom: 1.5rem; align-items: flex-start; }
+    .contact-detail .ci { font-size: 1.25rem; flex-shrink: 0; }
+    .contact-detail strong { display: block; font-size: .85rem; font-weight: 700; }
+    .contact-detail span { font-size: .9rem; color: var(--grey-3); }
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 500px) { .frow { grid-template-columns: 1fr; } }
+    label { font-size: .8rem; font-weight: 600; display: block; margin-bottom: .35rem; color: var(--black); }
+    input, textarea, select { width: 100%; padding: .8rem 1rem; border: 1.5px solid var(--grey-2); border-radius: var(--radius-sm); font-family: inherit; font-size: .92rem; color: var(--black); background: var(--white); outline: none; transition: border-color .2s; -webkit-appearance: none; }
+    input:focus, textarea:focus, select:focus { border-color: var(--blue); }
+    textarea { resize: vertical; min-height: 120px; }
+    .submit-btn { background: var(--blue); color: #fff; border: none; padding: .9rem 2rem; border-radius: 980px; font-size: .95rem; font-weight: 500; cursor: pointer; font-family: inherit; align-self: flex-start; }
+    #form-success { display: none; font-size: .88rem; font-weight: 600; color: #30d158; padding: .5rem 0; }
+    .cta-band { background: var(--black); text-align: center; padding: clamp(4rem, 8vw, 7rem) 2rem; }
+    .cta-band h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.04em; color: var(--white); margin-bottom: 1rem; }
+    .cta-band p { color: rgba(255,255,255,.5); font-size: 1rem; margin-bottom: 2rem; }
+    footer { background: var(--black); border-top: 1px solid #333; padding: 2.5rem clamp(1.5rem, 5vw, 5rem); color: var(--grey-3); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+    @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand p { font-size: .82rem; line-height: 1.7; max-width: 220px; margin-top: .75rem; }
+    footer h5 { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .85rem; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    footer ul a { color: var(--grey-3); text-decoration: none; font-size: .85rem; }
+    footer ul a:hover { color: var(--white); }
+    .footer-logo { font-size: 1rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .footer-bottom { border-top: 1px solid #222; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem; font-size: .78rem; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 640px) { nav ul { display: none; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">BuatanCerdas</a>
+  <ul>
+    <li><a href="#services">Solutions</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions"><a href="#contact" class="nav-link">Get a Demo</a></div>
+</nav>
+<section class="hero">
+  <div class="hero-eyebrow">BuatanCerdas.com</div>
+  <h1>Business software.<br><em>Built your way.</em></h1>
+  <p class="hero-sub">Payroll. Invoicing. Job tracking. HR. Tailored software that fits exactly how your SME operates.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-fill">Request a Free Demo</a>
+    <a href="#services" class="btn-ghost">Explore Solutions</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><strong>100+</strong><span>Businesses Served</span></div>
+    <div class="stat"><strong>6</strong><span>Core Solutions</span></div>
+    <div class="stat"><strong>99.9%</strong><span>Uptime SLA</span></div>
+  </div>
+</section>
+<section id="services">
+  <div class="product-header reveal">
+    <div class="eyebrow">Our Solutions</div>
+    <h2 class="section-title" style="color:#fff;">Everything your business needs. Nothing it doesn't.</h2>
+    <p class="section-body">Six tightly integrated modules, deployed separately or as a unified platform.</p>
+  </div>
+  <div class="product-grid">
+    <div class="product-cell featured reveal">
+      <div class="icon">&#x1F4B0;</div><h3>Payroll Management</h3>
+      <p>Automate salary runs, statutory deductions, and payslip delivery — fully compliant with EPF, SOCSO, EIS, and PCB requirements.</p>
+      <ul><li>Auto EPF, SOCSO, EIS &amp; PCB calculations</li><li>Monthly payslip generation &amp; email delivery</li><li>Leave and overtime integration</li><li>Bank payment file export</li></ul>
+      <a href="#contact" class="cell-link">Learn more</a>
+    </div>
+    <div class="product-cell reveal">
+      <div class="icon">&#x1F9FE;</div><h3>Invoicing &amp; Billing</h3>
+      <p>Send professional invoices, track payments, and automate reminders so you get paid faster.</p>
+      <ul><li>Professional invoice &amp; quotation builder</li><li>Automated payment reminders</li><li>Multi-currency &amp; SST support</li></ul>
+      <a href="#contact" class="cell-link">Learn more</a>
+    </div>
+    <div class="product-cell reveal">
+      <div class="icon">&#x1F4CB;</div><h3>Job Creation &amp; Tracking</h3>
+      <p>Create, assign, and monitor work orders in real time — from the office or in the field, on any device.</p>
+      <ul><li>Digital job order creation &amp; assignment</li><li>Real-time progress updates</li><li>Client-facing job status portal</li></ul>
+      <a href="#contact" class="cell-link">Learn more</a>
+    </div>
+    <div class="product-cell reveal">
+      <div class="icon">&#x1F465;</div><h3>HR &amp; Employee Management</h3>
+      <p>One place for employee records, leave approvals, attendance, and performance.</p>
+      <ul><li>Leave application &amp; approval workflow</li><li>Attendance tracking (biometric-ready)</li><li>Employee document store</li></ul>
+      <a href="#contact" class="cell-link">Learn more</a>
+    </div>
+    <div class="product-cell reveal">
+      <div class="icon">&#x1F4E6;</div><h3>Inventory Management</h3>
+      <p>Know exactly what's in stock, what's running low, and what to reorder — linked live to your sales and jobs.</p>
+      <ul><li>Real-time stock monitoring</li><li>Low-stock alerts &amp; auto-reorder</li><li>Supplier &amp; PO management</li></ul>
+      <a href="#contact" class="cell-link">Learn more</a>
+    </div>
+    <div class="product-cell reveal">
+      <div class="icon">&#x1F4CA;</div><h3>Business Dashboard</h3>
+      <p>A live command centre showing revenue, outstanding payments, job status, and headcount at a glance.</p>
+      <ul><li>Customisable KPI widgets</li><li>Scheduled automated reports</li><li>PDF &amp; Excel export</li></ul>
+      <a href="#contact" class="cell-link">Learn more</a>
+    </div>
+  </div>
+</section>
+<section id="why">
+  <div class="why-header reveal">
+    <div class="eyebrow">Why BuatanCerdas</div>
+    <h2 class="section-title">Software that actually fits.</h2>
+    <p class="section-body">We are not an off-the-shelf ERP vendor. We study how you work, then build around it.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar reveal"><div class="num">01</div><h4>Built Around Your Workflow</h4><p>We map your operations before writing a single line of code.</p></div>
+    <div class="pillar reveal"><div class="num">02</div><h4>Local Compliance, Always Current</h4><p>EPF, SOCSO, PCB, SST — built in and kept up to date automatically.</p></div>
+    <div class="pillar reveal"><div class="num">03</div><h4>Priced for SMEs</h4><p>Flat-rate plans that scale smoothly without renegotiating your contract.</p></div>
+    <div class="pillar reveal"><div class="num">04</div><h4>Dedicated Local Support</h4><p>Real humans in your timezone, reachable on WhatsApp, email, or phone.</p></div>
+  </div>
+</section>
+<section id="how">
+  <div class="how-header reveal">
+    <div class="eyebrow">Process</div>
+    <h2 class="section-title">From first call to go-live in weeks.</h2>
+    <p class="section-body">A four-step process designed to get you operational fast — typically 4 to 8 weeks.</p>
+  </div>
+  <div class="steps-row">
+    <div class="step-item reveal"><div class="step-dot">1</div><h4>Discovery Call</h4><p>Free 30-minute session to understand your workflows, pain points, and goals.</p></div>
+    <div class="step-item reveal"><div class="step-dot">2</div><h4>Custom Proposal</h4><p>Detailed scope, timeline, and fixed pricing — transparent, no surprises.</p></div>
+    <div class="step-item reveal"><div class="step-dot">3</div><h4>Build &amp; Review</h4><p>Regular demos so you can give feedback before final release.</p></div>
+    <div class="step-item reveal"><div class="step-dot">4</div><h4>Train &amp; Launch</h4><p>We train your team and go live together, with ongoing support.</p></div>
+  </div>
+</section>
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="eyebrow">Client Stories</div>
+    <h2 class="section-title">Loved by the businesses that use it.</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review reveal"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Our payroll used to take two days every month. With BuatanCerdas it is done in under an hour. Best investment we made this year."</p><div class="reviewer"><div class="reviewer-avatar">AH</div><div><strong>Ahmad Hafiz</strong><span>Director, Hafiz Engineering Sdn Bhd</span></div></div></div>
+    <div class="review reveal"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"The job tracking system gave us full visibility into our field team. Clients love the real-time updates. We have cut job disputes by 90%."</p><div class="reviewer"><div class="reviewer-avatar">SL</div><div><strong>Sarah Lim</strong><span>Operations Manager, CleanPro Services</span></div></div></div>
+    <div class="review reveal"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Professional invoices, automatic reminders, clear dashboard. We reduced overdue receivables by 40% in the first quarter."</p><div class="reviewer"><div class="reviewer-avatar">RN</div><div><strong>Ravi Nair</strong><span>Founder, RN Trading and Supplies</span></div></div></div>
+  </div>
+</section>
+<section id="pricing">
+  <div class="pricing-header reveal">
+    <div class="eyebrow">Pricing</div>
+    <h2 class="section-title" style="color:#fff;">Simple. Transparent. Fair.</h2>
+    <p class="section-body">Fixed monthly subscription. No per-user shock. Cancel anytime.</p>
+  </div>
+  <div class="plans">
+    <div class="plan reveal"><h3>Starter</h3><div class="plan-price">RM 299<sub>/mo</sub></div><p class="plan-desc">Up to 20 employees, 2 modules</p><ul class="plan-features"><li>Choose any 2 modules</li><li>Payroll or Invoicing included</li><li>Email support</li><li>Monthly data export</li></ul><a href="#contact" class="plan-btn">Get started</a></div>
+    <div class="plan featured reveal"><div class="plan-badge">Most Popular</div><h3>Business</h3><div class="plan-price" style="color:var(--black)">RM 599<sub>/mo</sub></div><p class="plan-desc">Up to 100 employees, all core modules</p><ul class="plan-features"><li>Payroll, Invoicing and Job Tracking</li><li>HR and Leave Management</li><li>Business Dashboard</li><li>Priority WhatsApp support</li><li>Free onboarding and training</li></ul><a href="#contact" class="plan-btn">Get started</a></div>
+    <div class="plan reveal"><h3>Enterprise</h3><div class="plan-price">Custom</div><p class="plan-desc">Unlimited users, custom modules</p><ul class="plan-features"><li>All Business features</li><li>Custom module development</li><li>API and third-party integrations</li><li>Dedicated account manager</li><li>On-site training available</li></ul><a href="#contact" class="plan-btn">Contact us</a></div>
+  </div>
+</section>
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="eyebrow">Get In Touch</div>
+      <h2 class="section-title">Ready to simplify your operations?</h2>
+      <p class="section-body">Book a free 30-minute demo — no commitment required.</p>
+      <div class="contact-detail"><span class="ci">&#x1F4E7;</span><div><strong>Email</strong><span>hello@buatancerdas.com</span></div></div>
+      <div class="contact-detail"><span class="ci">&#x1F4F1;</span><div><strong>WhatsApp</strong><span>+60 12-345 6789</span></div></div>
+      <div class="contact-detail"><span class="ci">&#x1F4CD;</span><div><strong>Location</strong><span>Kuala Lumpur, Malaysia</span></div></div>
+      <div class="contact-detail"><span class="ci">&#x1F550;</span><div><strong>Hours</strong><span>Mon - Fri, 9 AM - 6 PM MYT</span></div></div>
+    </div>
+    <form onsubmit="handleSubmit(event)" class="reveal">
+      <div class="frow">
+        <div><label for="fname">Full Name</label><input type="text" id="fname" placeholder="Ahmad bin Ali" required /></div>
+        <div><label for="company">Company</label><input type="text" id="company" placeholder="Your Sdn Bhd" /></div>
+      </div>
+      <div><label for="femail">Email Address</label><input type="email" id="femail" placeholder="you@company.com" required /></div>
+      <div><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" placeholder="+60 12-345 6789" /></div>
+      <div><label for="interest">I am interested in</label>
+        <select id="interest"><option value="">Select a solution</option><option>Payroll Management</option><option>Invoicing and Billing</option><option>Job Creation and Tracking</option><option>HR and Employee Management</option><option>Inventory Management</option><option>Full Business Suite</option></select>
+      </div>
+      <div><label for="message">Tell us about your business</label><textarea id="message" placeholder="Industry, team size, current challenges"></textarea></div>
+      <button type="submit" class="submit-btn">Send Message</button>
+      <div id="form-success">Message sent! We will be in touch within 1 business day.</div>
+    </form>
+  </div>
+</section>
+<div class="cta-band">
+  <h2>Start with a free demo.</h2>
+  <p>No commitment. No credit card. Just a 30-minute look at what we can build for you.</p>
+  <a href="#contact" class="btn-fill">Request a Demo</a>
+</div>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="#" class="footer-logo">BuatanCerdas</a><p>Smart IT and software solutions tailored for Malaysian SMEs.</p></div>
+    <div><h5>Solutions</h5><ul><li><a href="#services">Payroll</a></li><li><a href="#services">Invoicing</a></li><li><a href="#services">Job Tracking</a></li><li><a href="#services">HR Management</a></li><li><a href="#services">Inventory</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="#why">About</a></li><li><a href="#how">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div><h5>Legal</h5><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="mailto:hello@buatancerdas.com">Email Us</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>Copyright 2025 BuatanCerdas.com. All rights reserved.</span><span>Kuala Lumpur, Malaysia</span></div>
+</footer>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  function handleSubmit(e) {
+    e.preventDefault();
+    const s = document.getElementById('form-success');
+    s.style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { s.style.display = 'none'; }, 7000);
+  }
+</script>
+</body>
+</html>
