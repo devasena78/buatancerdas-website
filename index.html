@@ -1005,10 +1005,11 @@
         <div class="cd-v">Mon – Fri, 9 AM – 6 PM MYT</div>
       </div>
     </div>
-    <form action="https://formsubmit.co/hello@buatancerdas.com" method="POST" onsubmit="handleSubmit(event)" class="rv">
-      <input type="hidden" name="_subject" value="New enquiry from buatancerdas.com" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)" class="rv">
+      <input type="hidden" name="access_key" value="cd37c38b-87a2-4733-996d-78aef366058c" />
+      <input type="hidden" name="subject" value="New enquiry from buatancerdas.com" />
+      <input type="hidden" name="from_name" value="BuatanCerdas Website" />
+      <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
       <div class="frow">
         <div class="field">
           <label for="fname">Full Name</label>
@@ -1149,7 +1150,7 @@
     ok.style.display = 'block';
     btn.disabled = true;
 
-    fetch('https://formsubmit.co/ajax/hello@buatancerdas.com', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(Object.fromEntries(new FormData(form)))
