@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /handoff/
+
+Sitemap: https://buatancerdas.com/sitemap.xml

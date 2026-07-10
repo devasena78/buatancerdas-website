@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payroll Software Malaysia — EPF, SOCSO, EIS &amp; PCB Compliant | Buatan Cerdas Solutions</title>
+  <meta name="description" content="Custom payroll software for Malaysian SMEs. Automatic EPF, SOCSO, EIS &amp; PCB calculations, payslip generation, leave &amp; overtime integration, bank file export. One-time fee, no subscriptions." />
+  <link rel="canonical" href="https://buatancerdas.com/payroll-software-malaysia/" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Buatan Cerdas Solutions" />
+  <meta property="og:title" content="Payroll Software Malaysia — EPF, SOCSO, EIS & PCB Compliant" />
+  <meta property="og:description" content="Custom payroll software for Malaysian SMEs. Automatic statutory deductions, payslips, bank file export. One-time fee, no subscriptions." />
+  <meta property="og:url" content="https://buatancerdas.com/payroll-software-malaysia/" />
+  <meta property="og:image" content="https://buatancerdas.com/images/payroll.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://buatancerdas.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Payroll Software Malaysia", "item": "https://buatancerdas.com/payroll-software-malaysia/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the payroll software compliant with EPF, SOCSO, EIS and PCB?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Statutory contributions and deductions — EPF (KWSP), SOCSO (PERKESO), EIS and PCB/MTD — are calculated automatically and kept up to date with current Malaysian rates and rules, so every salary run is compliant without manual checking." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you charge monthly subscription fees?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Projects start from RM 500 as a one-time fee scoped to your needs. You own the software — there are no subscriptions or per-employee charges. Optional ongoing support is available." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to implement?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most payroll implementations go live within 4–8 weeks of the discovery call, including data migration, testing against your previous payroll runs, and staff training." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it handle shift workers, overtime and allowances?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Because the system is custom-built around your operations, shift patterns, overtime rules, allowances and deductions are configured to match exactly how your business pays people — including factory shift schedules common in Penang manufacturing." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is my payroll data stored?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Your data is hosted in Malaysia with a 99.9% uptime SLA, and remains fully yours — exportable at any time." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #F5F2EC;
+      --cream-2: #EDE9E2;
+      --dark:    #0A0908;
+      --dark-2:  #141210;
+      --ink:     #0D0C0A;
+      --ink-2:   #6B6358;
+      --ink-3:   #AFA89E;
+      --orange:  #C4501E;
+      --orange-d:#A8441C;
+      --white:   #F8F5EF;
+      --rule:    rgba(13,12,10,0.10);
+      --rule-m:  rgba(13,12,10,0.18);
+      --rule-w:  rgba(248,245,239,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      background: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* NAV (solid) */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 58px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem,5vw,4rem);
+      background: rgba(10,9,8,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--rule-w);
+    }
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo em { font-style: normal; color: var(--orange); }
+    nav ul { list-style: none; display: flex; gap: clamp(1.5rem,3vw,2.5rem); }
+    nav ul a {
+      text-decoration: none; color: rgba(248,245,239,0.5); font-size: 0.75rem;
+      font-weight: 400; letter-spacing: 0.06em; transition: color .2s;
+    }
+    nav ul a:hover { color: var(--white); }
+    .nav-cta {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+      color: var(--white); text-decoration: none; text-transform: uppercase;
+      border: 1px solid rgba(248,245,239,0.3); padding: .45rem 1.1rem;
+      transition: background .2s, border-color .2s;
+    }
+    .nav-cta:hover { background: var(--orange); border-color: var(--orange); }
+    @media (max-width: 640px) { nav ul { display: none; } }
+
+    /* PAGE HERO (dark) */
+    .page-hero {
+      background: var(--dark);
+      padding: 150px clamp(1.5rem,5vw,4rem) 5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 70% at 85% 10%, rgba(196,80,30,0.20) 0%, transparent 65%);
+    }
+    .page-hero-inner { max-width: 1000px; margin: 0 auto; position: relative; }
+    .crumb {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(248,245,239,0.35); margin-bottom: 2.5rem;
+    }
+    .crumb a { color: rgba(248,245,239,0.35); text-decoration: none; }
+    .crumb a:hover { color: var(--orange); }
+    .eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 1.5rem;
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      font-weight: 400; letter-spacing: -0.03em; line-height: 1;
+      color: var(--white); max-width: 800px; margin-bottom: 2rem;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--orange); }
+    .page-hero p.lede {
+      font-size: clamp(0.95rem,1.6vw,1.1rem); font-weight: 300;
+      color: rgba(248,245,239,0.55); max-width: 560px; line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+    .btn-fill {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white); text-decoration: none;
+      background: var(--orange); padding: .85rem 2rem;
+      transition: background .2s; display: inline-block;
+    }
+    .btn-fill:hover { background: var(--orange-d); }
+
+    /* CONTENT SECTIONS */
+    .sec { padding: clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem); }
+    .sec.cream { background: var(--cream); }
+    .sec.cream-2 { background: var(--cream-2); }
+    .sec.dark { background: var(--dark-2); }
+    .sec-inner { max-width: 1000px; margin: 0 auto; }
+    .sec h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem,4vw,3rem); font-weight: 400;
+      letter-spacing: -0.025em; line-height: 1.12;
+      color: var(--ink); margin-bottom: 1.75rem; max-width: 640px;
+    }
+    .sec.dark h2 { color: var(--white); }
+    .sec h2 em { font-style: italic; color: var(--orange); }
+    .sec p { font-size: 0.92rem; font-weight: 300; color: var(--ink-2); line-height: 1.9; max-width: 640px; margin-bottom: 1.25rem; }
+    .sec.dark p { color: rgba(248,245,239,0.5); }
+
+    /* Feature grid */
+    .feat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--rule-m); margin-top: 2.5rem;
+      border: 1px solid var(--rule-m);
+    }
+    @media (max-width: 640px) { .feat-grid { grid-template-columns: 1fr; } }
+    .feat { background: var(--cream); padding: 1.75rem; }
+    .feat-n {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em;
+      color: var(--ink-3); text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+    .feat h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 500; letter-spacing: -0.02em;
+      color: var(--ink); margin-bottom: 0.5rem;
+    }
+    .feat p { font-size: 0.82rem; margin: 0; max-width: none; }
+
+    /* Statutory list */
+    .stat-list { list-style: none; margin-top: 2rem; }
+    .stat-list li {
+      padding: 1.25rem 0; border-bottom: 1px solid var(--rule);
+      display: flex; gap: 1.25rem; align-items: baseline; max-width: 640px;
+    }
+    .stat-list li:first-child { border-top: 1px solid var(--rule); }
+    .stat-list strong {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--orange); width: 110px; flex-shrink: 0; font-weight: 400;
+    }
+    .stat-list span { font-size: 0.88rem; font-weight: 300; color: var(--ink-2); line-height: 1.7; }
+
+    /* FAQ */
+    .faq { margin-top: 2.5rem; max-width: 720px; }
+    .faq details { border-bottom: 1px solid var(--rule-w); }
+    .faq details:first-child { border-top: 1px solid var(--rule-w); }
+    .faq summary {
+      cursor: pointer; padding: 1.4rem 0; list-style: none;
+      font-size: 0.95rem; font-weight: 400; color: var(--white);
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--orange); flex-shrink: 0; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { padding: 0 0 1.5rem; font-size: 0.88rem; color: rgba(248,245,239,0.5); line-height: 1.85; max-width: 640px; }
+
+    /* CTA band */
+    .cta {
+      background: var(--dark); padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 70% at 50% 60%, rgba(196,80,30,0.25) 0%, transparent 65%);
+    }
+    .cta-inner { position: relative; max-width: 800px; margin: 0 auto; }
+    .cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem,7vw,5.5rem); font-weight: 300;
+      letter-spacing: -0.04em; line-height: 0.95; color: var(--white); margin-bottom: 1.75rem;
+    }
+    .cta h2 em { font-style: italic; color: var(--orange); }
+    .cta p { font-size: 0.9rem; font-weight: 300; color: rgba(248,245,239,0.45); margin-bottom: 2.5rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); border-top: 1px solid rgba(248,245,239,0.07);
+      padding: 2.5rem clamp(1.5rem,5vw,4rem);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+      font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
+      color: rgba(248,245,239,0.25); text-transform: uppercase;
+    }
+    footer a { color: rgba(248,245,239,0.4); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../" class="nav-logo">Buatan<em>Cerdas</em> Solutions</a>
+  <ul>
+    <li><a href="../#services">Solutions</a></li>
+    <li><a href="../#why">Why Us</a></li>
+    <li><a href="../#contact">Contact</a></li>
+  </ul>
+  <a href="../#contact" class="nav-cta">Get a Demo</a>
+</nav>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumb"><a href="../">Home</a> / Payroll Software Malaysia</div>
+    <div class="eyebrow">Payroll Management</div>
+    <h1>Payroll software built for <em>Malaysian SMEs.</em></h1>
+    <p class="lede">Run payroll in minutes, not days. Automatic EPF, SOCSO, EIS and PCB calculations, payslip generation and delivery, and bank-ready payment files — custom-built around how your business actually pays people.</p>
+    <a href="../#contact" class="btn-fill">Request a Free Demo</a>
+  </div>
+</header>
+
+<!-- COMPLIANCE -->
+<section class="sec cream">
+  <div class="sec-inner">
+    <div class="eyebrow">Statutory Compliance</div>
+    <h2>Malaysian statutory deductions, <em>calculated automatically.</em></h2>
+    <p>Manual payroll in Malaysia means juggling contribution tables, tax schedules and changing rates across four separate statutory bodies. Our payroll system handles all of it automatically and is kept current as regulations change — so every salary run is right the first time.</p>
+    <ul class="stat-list">
+      <li><strong>EPF · KWSP</strong><span>Employee and employer provident fund contributions calculated per current KWSP rates, with contribution files ready for submission.</span></li>
+      <li><strong>SOCSO</strong><span>PERKESO social security contributions across employment injury and invalidity schemes, applied by employee category.</span></li>
+      <li><strong>EIS</strong><span>Employment Insurance System contributions computed and included in your monthly statutory summary.</span></li>
+      <li><strong>PCB · MTD</strong><span>Monthly tax deductions per LHDN schedules, factoring in reliefs, so employees are taxed correctly every month.</span></li>
+      <li><strong>SST-Ready</strong><span>Integrates with our invoicing module for a complete picture of your payroll costs against revenue.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec cream-2">
+  <div class="sec-inner">
+    <div class="eyebrow">What's Included</div>
+    <h2>Everything a salary run needs.</h2>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="feat-n">01</div>
+        <h3>Automated Salary Runs</h3>
+        <p>Process your entire workforce in one pass — basic salary, allowances, overtime, bonuses and deductions, with full statutory calculations applied.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-n">02</div>
+        <h3>Payslip Generation &amp; Delivery</h3>
+        <p>Professional payslips generated automatically and emailed to every employee — with a secure archive your staff can access any time.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-n">03</div>
+        <h3>Leave &amp; Overtime Integration</h3>
+        <p>Approved leave, shift schedules and overtime flow straight into the salary run — no re-keying from spreadsheets or punch cards.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-n">04</div>
+        <h3>Bank Payment File Export</h3>
+        <p>Generate bank-ready bulk payment files so salaries are paid in one upload to your bank portal, not one transfer at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM FIT -->
+<section class="sec cream">
+  <div class="sec-inner">
+    <div class="eyebrow">Built Around You</div>
+    <h2>Not off-the-shelf. <em>Built to fit.</em></h2>
+    <p>Generic payroll products force your business to work their way. We do the opposite: we map how you already pay people — shift patterns in a Penang factory, project-based crews on construction sites, commission structures in retail — and build the payroll system around it.</p>
+    <p>Payroll can run standalone or as part of a unified platform with our HR, job tracking, inventory and invoicing modules, all reporting into one business dashboard.</p>
+    <p>Projects start from <strong style="color:var(--orange); font-weight:500;">RM 500 one-time</strong> — you own the software, with no monthly fees and no per-employee charges. Every project is scoped after a free 30-minute discovery call.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec dark">
+  <div class="sec-inner">
+    <div class="eyebrow">Common Questions</div>
+    <h2>Payroll software FAQ.</h2>
+    <div class="faq">
+      <details>
+        <summary>Is the payroll software compliant with EPF, SOCSO, EIS and PCB?</summary>
+        <p>Yes. Statutory contributions and deductions — EPF (KWSP), SOCSO (PERKESO), EIS and PCB/MTD — are calculated automatically and kept up to date with current Malaysian rates and rules, so every salary run is compliant without manual checking.</p>
+      </details>
+      <details>
+        <summary>Do you charge monthly subscription fees?</summary>
+        <p>No. Projects start from RM 500 as a one-time fee scoped to your needs. You own the software — there are no subscriptions or per-employee charges. Optional ongoing support is available.</p>
+      </details>
+      <details>
+        <summary>How long does it take to implement?</summary>
+        <p>Most payroll implementations go live within 4–8 weeks of the discovery call, including data migration, testing against your previous payroll runs, and staff training.</p>
+      </details>
+      <details>
+        <summary>Can it handle shift workers, overtime and allowances?</summary>
+        <p>Yes. Because the system is custom-built around your operations, shift patterns, overtime rules, allowances and deductions are configured to match exactly how your business pays people — including factory shift schedules common in Penang manufacturing.</p>
+      </details>
+      <details>
+        <summary>Where is my payroll data stored?</summary>
+        <p>Your data is hosted in Malaysia with a 99.9% uptime SLA, and remains fully yours — exportable at any time.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <h2>Payroll done <em>in minutes.</em></h2>
+    <p>Book a free 30-minute discovery call — no commitment, no monthly fees.</p>
+    <a href="../#contact" class="btn-fill">Request a Free Demo</a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Buatan Cerdas Solutions · <a href="../">buatancerdas.com</a></span>
+  <span>Penang, Malaysia</span>
+</footer>
+
+</body>
+</html>
